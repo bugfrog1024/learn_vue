@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  //1.属性的增强写法
+  const name = 'Perry'
+  const age = 22
+  //ES5
+  const obj = {
+    name: name,
+    age: age
+  }
+  //ES6
+  const obj = {
+    name,
+    age
+  }
+  //2.函数的增强写法
+  //ES5
+  const obj = {
+    run: function () {
+      console.log('running')
+    }
+  }
+  //ES6
+  const obj = {
+    run(){
+      console.log('running')
+    }
+  }
+</script>
+</body>
+</html>

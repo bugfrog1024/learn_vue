@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="(m, index) in movies" v-on:click="choose(index)" v-bind:class="{active: index===currentIndex}">{{m}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      movies: ['星际穿越', '大话西游', '少年派的奇幻漂流', '盗梦空间'],
+      currentIndex: 0
+    },
+    methods: {
+      choose: function (index) {
+        //记录当前状态
+        this.currentIndex = index
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--获取value-->
+  <ul>
+    <li v-for="value in info">{{value}}</li>
+  </ul>
+  <!--获取key和value-->
+  <ul>
+    <li v-for="(value, key) in info">{{key}}-{{value}}</li>
+  </ul>
+  <!--获取key、value和index-->
+  <ul>
+    <li v-for="(value, key, index) in info">{{key}}-{{value}}-{{index}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      info: {
+        name: 'Perry',
+        age: 22
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  setTimeout(() => {
+    console.log('Hello')
+  }, 1000)
+
+  //第一种写法
+  new Promise((resolve, reject) => {
+    //异步代码（如网络请求）
+    setTimeout(() => {
+      resolve('Hello')
+      // reject('Error')
+    }, 1000)
+  }).then(data => {
+    //异步成功的处理代码
+    console.log(data);
+  }).catch(err => {
+    //异步失败的处理代码
+    console.log(err);
+  })
+
+  //第二种写法
+  new Promise((resolve, reject) => {
+    //异步代码（如网络请求）
+    setTimeout(() => {
+      resolve('Hello')
+      // reject('Error')
+    }, 1000)
+  }).then(data => {
+    //异步成功的处理代码
+    console.log(data);
+  }, err => {
+    //异步失败的处理代码
+    console.log(err);
+  })
+
+  // new Promise((resolve, reject) => {
+  //   //第一次网络请求
+  //   setTimeout(() => {
+  //     resolve()
+  //   }, 1000)
+  // }).then(() => {
+  //   //第一次拿到结果的处理代码
+  //   console.log('111')
+  //   return new Promise(((resolve, reject) => {
+  //     //第二次网络请求
+  //     setTimeout(() => {
+  //       resolve()
+  //     }, 1000)
+  //   }))
+  // }).then(() => {
+  //   //第二次拿到结果的处理代码
+  //   console.log('222')
+  //   return new Promise(((resolve, reject) => {
+  //     //第三次网络请求
+  //     setTimeout(() => {
+  //       resolve()
+  //     }, 1000)
+  //   }))
+  // }).then(() => {
+  //   //第三次拿到结果的处理代码
+  //   console.log('333')
+  // })
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  Promise.all([
+    new Promise((resolve, reject) => {
+      console.log('网络请求一...得到结果：res111');
+      resolve('res111')
+    }),
+    new Promise((resolve, reject) => {
+      console.log('网络请求二...得到结果：res222');
+      resolve('res222')
+    })
+  ]).then(results => {
+    console.log(results[0]);
+    console.log(results[1]);
+  })
+</script>
+</body>
+</html>

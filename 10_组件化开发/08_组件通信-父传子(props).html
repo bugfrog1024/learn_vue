@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn v-bind:cmovies="movies" :cmsg="msg"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    {{cmovies}}
+    {{cmsg}}
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  const cpn = {
+    template: '#cpn',
+    // props: ['cmovies', 'cmsg'],
+    props: {
+      //类型限制（可以是自定义类型）
+      cmovies: Array,
+      cmsg: {
+        type: String,
+        //提供默认值（当类型是对象或数组时，default必须是一个函数，return设置的默认值）
+        default(){
+          return 'Hello'
+        },
+        //要求必须传值
+        // required: true
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      msg: 'Hi',
+      movies: ['海王', '海贼王', '海尔兄弟']
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+
+</body>
+</html>
